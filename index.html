@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SportX — Gear Up. Show Up. Win.</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- EMAIL POPUP -->
+  <div class="popup-overlay" id="popup">
+    <div class="popup-box">
+      <button class="popup-close" onclick="closePopup()">✕</button>
+      <div class="popup-discount-badge">⚡ Limited Offer</div>
+      <div class="popup-title">GET <span class="accent">15% OFF</span></div>
+      <p class="popup-sub">Join 50,000+ athletes who train with SportX. Subscribe and get an exclusive discount on your first order.</p>
+      <div class="popup-form">
+        <input type="email" class="popup-input" placeholder="Enter your email address" />
+        <button class="btn-primary" style="justify-content:center;padding:16px;" onclick="closePopup()">⚡ Claim My 15% Off</button>
+      </div>
+      <p class="popup-skip" onclick="closePopup()">No thanks, I'll pay full price</p>
+    </div>
+  </div>
+
+  <!-- CART OVERLAY -->
+  <div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+
+  <!-- CART DRAWER -->
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+      <div class="cart-title">🛒 Your Cart <span class="cart-count" id="cartBadge">0</span></div>
+      <button class="cart-close" onclick="closeCart()">✕</button>
+    </div>
+    <div class="cart-body" id="cartBody">
+      <div class="cart-empty">
+        <span class="cart-empty-icon">🛍️</span>
+        <div class="cart-empty-text">Your cart is empty</div>
+        <p style="font-size:14px;margin-top:8px;color:var(--gray-mid)">Add some gear to get started!</p>
+      </div>
+    </div>
+    <div class="cart-footer" id="cartFooter" style="display:none">
+      <div class="cart-upsell">
+        <span class="upsell-icon">🎁</span>
+        <div class="upsell-text"><strong>You're ₹500 away</strong> from FREE shipping!</div>
+      </div>
+      <div class="cart-total-row">
+        <span class="cart-total-label">Total</span>
+        <span class="cart-total-price" id="cartTotal">₹0</span>
+      </div>
+      <button class="checkout-btn">🔒 Checkout Securely →</button>
+      <div class="cart-security">🔒 Secure &amp; Encrypted Checkout · SSL Protected</div>
+    </div>
+  </div>
+
+  <!-- MOBILE NAV -->
+  <div class="mobile-nav" id="mobileNav">
+    <div class="mobile-nav-links">
+      <a href="#" onclick="closeMobileNav()">Home</a>
+      <a href="#collections" onclick="closeMobileNav()">Collections</a>
+      <a href="#products" onclick="closeMobileNav()">Shop All</a>
+      <a href="#about" onclick="closeMobileNav()">About</a>
+      <a href="#contact" onclick="closeMobileNav()">Contact</a>
+    </div>
+  </div>
+
+  <!-- ANNOUNCEMENT BAR -->
+  <div class="announcement-bar">
+    ⚡ FREE SHIPPING on orders over ₹1,499
+    <span>|</span>
+    🔥 USE CODE: <strong>SPORTX15</strong> for 15% OFF
+    <span>|</span>
+    ⭐ 4.9/5 from 12,000+ Reviews
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-inner">
+      <div class="nav-logo">Sport<span>X</span></div>
+      <div class="nav-links">
+        <a href="#">Home</a>
+        <a href="#collections">Collections</a>
+        <a href="#products">Shop All</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <button class="nav-icon-btn">🔍</button>
+        <button class="nav-icon-btn">♡</button>
+        <button class="cart-btn" onclick="openCart()">
+          🛒 Cart <span class="cart-count" id="navCartCount">0</span>
+        </button>
+        <button class="hamburger" onclick="openMobileNav()">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section style="padding:0">
+    <div class="hero">
+      <div class="hero-content">
+        <div class="hero-badge">New Season 2025 Drop</div>
+        <h1 class="hero-title">
+          <span>Gear Up.</span>
+          <span class="accent">Show Up.</span>
+          <span class="stroke">Win Big.</span>
+        </h1>
+        <p class="hero-sub">Premium sports equipment and athletic apparel engineered for performance. Built for champions who refuse to settle for less.</p>
+        <div class="hero-ctas">
+          <a href="#products" class="btn-primary">⚡ Shop Now</a>
+          <a href="#collections" class="btn-secondary">View Collections</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item"><div class="stat-num">50K+</div><div class="stat-label">Athletes Trust Us</div></div>
+          <div class="stat-item"><div class="stat-num">4.9★</div><div class="stat-label">Avg Rating</div></div>
+          <div class="stat-item"><div class="stat-num">200+</div><div class="stat-label">Products</div></div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-image-wrapper">
+          <img src="images/hero.png" alt="Athlete deadlifting — SportX" />
+          <div class="hero-badge-float">🔥 BESTSELLER</div>
+          <div class="hero-badge-bottom">
+            <span class="rating-stars">★★★★★</span>
+            <span style="font-size:13px;">12,000+ Happy Athletes</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <div class="trust-bar">
+    <div class="trust-bar-inner">
+      <div class="trust-item"><span class="trust-item-icon">🚚</span> Free Shipping ₹1,499+</div>
+      <div class="trust-item"><span class="trust-item-icon">↩️</span> 30-Day Easy Returns</div>
+      <div class="trust-item"><span class="trust-item-icon">🔒</span> Secure Payments</div>
+      <div class="trust-item"><span class="trust-item-icon">⭐</span> 4.9/5 Customer Rating</div>
+      <div class="trust-item"><span class="trust-item-icon">🎁</span> Free Gift on ₹2,999+</div>
+    </div>
+  </div>
+
+  <!-- BRAND MARQUEE -->
+  <div class="brand-strip">
+    <div class="brand-strip-inner">
+      <div class="brand-strip-item">Running</div><div class="brand-strip-item">Strength Training</div>
+      <div class="brand-strip-item">Yoga &amp; Wellness</div><div class="brand-strip-item">Combat Sports</div>
+      <div class="brand-strip-item">Team Sports</div><div class="brand-strip-item">Outdoor Adventure</div>
+      <div class="brand-strip-item">Recovery</div><div class="brand-strip-item">Running</div>
+      <div class="brand-strip-item">Strength Training</div><div class="brand-strip-item">Yoga &amp; Wellness</div>
+      <div class="brand-strip-item">Combat Sports</div><div class="brand-strip-item">Team Sports</div>
+      <div class="brand-strip-item">Outdoor Adventure</div><div class="brand-strip-item">Recovery</div>
+    </div>
+  </div>
+
+  <!-- COLLECTIONS -->
+  <section class="collections-section" id="collections">
+    <div class="section-inner">
+      <div class="section-header">
+        <div>
+          <div class="section-label">Browse</div>
+          <h2 class="section-title">Shop By <span class="dim">Category</span></h2>
+        </div>
+        <a href="#" class="view-all-link">All Collections →</a>
+      </div>
+      <div class="collections-grid">
+        <div class="collection-card" onclick="scrollToProducts()">
+          <img class="collection-img" src="images/strength.png" alt="Strength and Weights" />
+          <div class="collection-overlay">
+            <div class="collection-name">Strength &amp; Weights</div>
+            <div class="collection-count">48 Products</div>
+            <div class="collection-cta">Shop Now →</div>
+          </div>
+        </div>
+        <div class="collection-card" onclick="scrollToProducts()">
+          <img class="collection-img" src="images/runningGear.png" alt="Running Gear" style="object-position:center 30%" />
+          <div class="collection-overlay">
+            <div class="collection-name">Running Gear</div>
+            <div class="collection-count">36 Products</div>
+            <div class="collection-cta">Shop Now →</div>
+          </div>
+        </div>
+        <div class="collection-card" onclick="scrollToProducts()">
+          <img class="collection-img" src="images/yoga.png" alt="Yoga and Recovery" />
+          <div class="collection-overlay">
+            <div class="collection-name">Yoga &amp; Recovery</div>
+            <div class="collection-count">29 Products</div>
+            <div class="collection-cta">Shop Now →</div>
+          </div>
+        </div>
+        <div class="collection-card" onclick="scrollToProducts()">
+          <img class="collection-img" src="images/combat.png" alt="Combat Sports" style="object-position:center 20%" />
+          <div class="collection-overlay">
+            <div class="collection-name">Combat Sports</div>
+            <div class="collection-count">22 Products</div>
+            <div class="collection-cta">Shop Now →</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section class="products-section" id="products">
+    <div class="section-inner">
+      <div class="section-header">
+        <div>
+          <div class="section-label">Bestsellers</div>
+          <h2 class="section-title">Top Picks <span class="dim">This Week</span></h2>
+        </div>
+        <a href="#" class="view-all-link">View All →</a>
+      </div>
+      <div class="products-grid" id="productsGrid"></div>
+    </div>
+  </section>
+
+  <!-- USP -->
+  <section class="usp-section">
+    <div class="section-inner">
+      <div style="text-align:center;margin-bottom:60px">
+        <div class="section-label" style="justify-content:center">Why SportX</div>
+        <h2 class="section-title">Built For <span style="color:var(--accent)">Winners</span></h2>
+      </div>
+      <div class="usp-grid">
+        <div class="usp-card"><span class="usp-icon">⚡</span><div class="usp-title">Performance First</div><p class="usp-desc">Every product is lab-tested and athlete-approved for maximum performance under pressure.</p></div>
+        <div class="usp-card"><span class="usp-icon">🛡️</span><div class="usp-title">Built to Last</div><p class="usp-desc">Military-grade materials and precision engineering. Our gear withstands the toughest sessions.</p></div>
+        <div class="usp-card"><span class="usp-icon">🚀</span><div class="usp-title">Fast Delivery</div><p class="usp-desc">Same-day dispatch before 3 PM. Pan-India delivery in 2–4 business days.</p></div>
+        <div class="usp-card"><span class="usp-icon">💯</span><div class="usp-title">100% Guaranteed</div><p class="usp-desc">30-day no-questions-asked returns. If you're not satisfied, we'll make it right.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROMO -->
+  <section class="promo-section">
+    <div class="promo-inner">
+      <div class="promo-content">
+        <div class="promo-badge">⚡ Flash Sale — Today Only</div>
+        <div class="promo-title">Up To<br/>40% OFF</div>
+        <p class="promo-sub">On selected training gear, apparel &amp; supplements.<br/>Don't miss out — stock is limited!</p>
+        <a href="#products" class="btn-white">Shop the Sale →</a>
+      </div>
+      <div class="promo-countdown">
+        <div class="countdown-label">⏳ Offer Ends In</div>
+        <div class="countdown-timer">
+          <div class="countdown-item"><span class="countdown-num" id="cdH">08</span><span class="countdown-unit">Hrs</span></div>
+          <div class="countdown-item"><span class="countdown-num" id="cdM">45</span><span class="countdown-unit">Min</span></div>
+          <div class="countdown-item"><span class="countdown-num" id="cdS">00</span><span class="countdown-unit">Sec</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials-section">
+    <div class="section-inner">
+      <div style="text-align:center;margin-bottom:60px">
+        <div class="section-label" style="justify-content:center">Reviews</div>
+        <h2 class="section-title">What Athletes <span style="color:var(--accent)">Say</span></h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">"The resistance bands are absolutely incredible. I've been training for 8 years and these are the best I've ever used. The quality is unmatched at this price point."</p>
+          <div class="testi-author">
+            <div class="testi-avatar"><img src="images/athelete_1.png" alt="Rahul Sharma" /></div>
+            <div><div class="testi-name">Rahul Sharma</div><div class="testi-tag">⚡ Certified Personal Trainer</div></div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">"Ordered the yoga mat set and was blown away. Shipped in one day, packaging was premium, and the product feels luxurious. SportX is my go-to for all fitness gear now!"</p>
+          <div class="testi-author">
+            <div class="testi-avatar"><img src="images/athelete_2.png" alt="Priya Mehta" /></div>
+            <div><div class="testi-name">Priya Mehta</div><div class="testi-tag">🧘 Yoga Instructor</div></div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">"Just competed in my third marathon using SportX running gear. The hydration vest is a game-changer. Already recommended to my entire running club."</p>
+          <div class="testi-author">
+            <div class="testi-avatar"><img src="images/athelete_3.png" alt="Suhani Kapoor" /></div>
+            <div><div class="testi-name">Suhani Kapoor</div><div class="testi-tag">🏃 Marathon Runner</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="newsletter-section" id="contact">
+    <div class="newsletter-box">
+      <span class="newsletter-icon">📧</span>
+      <h2 class="newsletter-title">Join The <span style="color:var(--accent)">Squad</span></h2>
+      <p class="newsletter-sub">Get exclusive deals, training tips, and early access to new drops. 50,000+ athletes subscribed.</p>
+      <div class="newsletter-form">
+        <input type="email" class="newsletter-input" placeholder="your@email.com" />
+        <button class="btn-primary" style="white-space:nowrap">Get 15% Off ⚡</button>
+      </div>
+      <div class="newsletter-perks">
+        <div class="perk"><span class="perk-icon">✓</span> Exclusive deals</div>
+        <div class="perk"><span class="perk-icon">✓</span> No spam ever</div>
+        <div class="perk"><span class="perk-icon">✓</span> Unsubscribe anytime</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-main" id="about">
+      <div>
+        <div class="footer-brand-logo">Sport<span>X</span></div>
+        <p class="footer-brand-desc">We're on a mission to make premium sports gear accessible to every athlete — from beginners to champions. Built in India. Built for the world.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-btn">📘</a><a href="#" class="social-btn">📸</a>
+          <a href="#" class="social-btn">🐦</a><a href="#" class="social-btn">▶️</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Shop</div>
+        <div class="footer-links">
+          <a href="#">All Products</a><a href="#">Strength &amp; Weights</a>
+          <a href="#">Running Gear</a><a href="#">Yoga &amp; Recovery</a>
+          <a href="#">Combat Sports</a><a href="#">Sale</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Support</div>
+        <div class="footer-links">
+          <a href="#">FAQ</a><a href="#">Shipping Info</a>
+          <a href="#">Returns &amp; Exchanges</a><a href="#">Track Your Order</a>
+          <a href="#">Contact Us</a><a href="#">Size Guide</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Company</div>
+        <div class="footer-links">
+          <a href="#">About SportX</a><a href="#">Our Story</a>
+          <a href="#">Careers</a><a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a><a href="#">Affiliate Program</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-bottom-text">© 2025 SportX. All rights reserved. Made with ❤️ for athletes.</div>
+      <div class="payment-icons">
+        <div class="payment-icon">VISA</div><div class="payment-icon">MC</div>
+        <div class="payment-icon">UPI</div><div class="payment-icon">GPay</div>
+        <div class="payment-icon">COD</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
